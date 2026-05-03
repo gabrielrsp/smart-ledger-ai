@@ -1,8 +1,8 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 
-export const googleAI = createGoogleGenerativeAI({
+const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
 });
 
-
-export const financeModel = googleAI('gemini-1.5-flash');
+// Atualizando para a versão estável de 2026 que apareceu no seu curl
+export const financeModel = google('gemini-2.5-flash');
