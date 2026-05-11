@@ -20,19 +20,19 @@ export function SummaryCards ({ data }: { data: Transaction[] }) {
 
   const cards = [
     {
-      title: "Entradas",
+      title: "Incomes",
       value: totals.income,
       icon: TrendingUp,
       color: "text-emerald-600",
     },
     {
-      title: "Saídas",
+      title: "Expenses",
       value: totals.expense,
       icon: TrendingDown,
       color: "text-rose-600",
     },
     {
-      title: "Saldo Líquido",
+      title: "Net Balance",
       value: balance,
       icon: Wallet,
       color: balance >= 0 ? "text-emerald-600" : "text-rose-600",
@@ -52,9 +52,9 @@ export function SummaryCards ({ data }: { data: Transaction[] }) {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-black text-zinc-900">
-              {new Intl.NumberFormat("pt-BR", {
+              {new Intl.NumberFormat("en-US", {
                 style: "currency",
-                currency: "BRL",
+                currency: "USD",
               }).format(card.value)}
             </div>
           </CardContent>

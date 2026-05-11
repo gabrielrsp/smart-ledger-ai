@@ -25,7 +25,7 @@ export function FileUpload ({ onDataExtracted }: { onDataExtracted: (data: Trans
             row.Description ||
             row.Descrição ||
             row.memo ||
-            'Transação sem descrição';
+            'No description provided';
 
           // 2. Normalização do Valor (Trata strings, números e formatos BR)
           let cleanAmount = 0;
@@ -49,7 +49,7 @@ export function FileUpload ({ onDataExtracted }: { onDataExtracted: (data: Trans
           };
         });
 
-        console.log("Dados extraídos e normalizados:", parsedData);
+        console.log("Extracted and normalized data:", parsedData);
         onDataExtracted(parsedData);
       },
     });
@@ -58,8 +58,8 @@ export function FileUpload ({ onDataExtracted }: { onDataExtracted: (data: Trans
   return (
     <div className="w-full max-w-xl flex flex-col items-center gap-4 p-8 border-2 border-dashed rounded-xl bg-muted/50 hover:bg-muted/80 transition-colors">
       <p className="text-sm text-muted-foreground text-center">
-        Arraste seu CSV bancário aqui ou clique para selecionar <br />
-        <span className="text-xs italic">(Compatível com Nubank, Inter, Itaú e outros)</span>
+        Drag and drop your bank CSV here, or click to browse <br />
+        <span className="text-xs italic">(Works with major international and local banking statements)</span>
       </p>
 
       <input
@@ -72,7 +72,7 @@ export function FileUpload ({ onDataExtracted }: { onDataExtracted: (data: Trans
 
       <label htmlFor="csv-upload" className="cursor-pointer">
         <Button asChild>
-          <span>Selecionar Arquivo</span>
+          <span>Select File</span>
         </Button>
       </label>
     </div>

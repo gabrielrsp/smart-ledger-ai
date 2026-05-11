@@ -41,7 +41,7 @@ export default function Dashboard () {
         }
       }
     } catch (error) {
-      console.error('Falha ao analisar:', error);
+      console.error('Fail on analysis:', error);
     } finally {
       setIsLoading(false);
     }
@@ -51,11 +51,11 @@ export default function Dashboard () {
     <main className="container mx-auto py-10 px-4 min-h-screen">
       <div className="flex flex-col items-center gap-8 text-center">
 
-        {/* 1. Cabeçalho */}
+
         <div className="space-y-2">
           <h1 className="text-5xl font-black tracking-tighter text-zinc-900">Finance AI</h1>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Sua inteligência financeira personalizada. Suba seu extrato e deixe o Gemini trabalhar.
+            Personalized financial insights at your fingertips. Upload your bank statement and let Gemini take over.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function Dashboard () {
             {/* O aviso por escrito que você gosta */}
             <div className="flex items-center gap-2 text-zinc-500 animate-pulse">
               <span className="h-2 w-2 bg-zinc-500 rounded-full animate-bounce" />
-              <p className="font-medium">O Gemini está analisando os detalhes...</p>
+              <p className="font-medium">Processing your financial data...</p>
             </div>
 
             {/* O Skeleton logo abaixo */}
@@ -107,7 +107,7 @@ export default function Dashboard () {
           <div className="w-full max-w-4xl mt-10 p-8 border rounded-3xl bg-white shadow-2xl text-left border-zinc-100 transition-all animate-in fade-in duration-700">
             <div className="flex items-center gap-3 mb-8 border-b pb-6">
               <div className="h-10 w-2 bg-zinc-900 rounded-full" />
-              <h2 className="text-3xl font-bold text-zinc-900">Relatório Detalhado</h2>
+              <h2 className="text-3xl font-bold text-zinc-900">Financial Analysis Report</h2>
             </div>
 
             <div className="prose prose-zinc max-w-none 

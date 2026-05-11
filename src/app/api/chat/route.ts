@@ -5,30 +5,32 @@ export async function POST(req: Request) {
   try {
     const { transactions } = await req.json();
 
-    if (!transactions) {
-      return new Response('Nenhuma transação encontrada', { status: 400 });
+    if (!transactions || transactions.length === 0) {
+      return new Response('No transactions found', { status: 400 });
     }
 
-    const prompt = `Você é um analista financeiro senior. 
-    Analise o seguinte array de transações que contém as colunas 'date', 'description' e 'amount'.
-    Importante: Considere que os valores em 'amount' já estão em Reais (R$).
+    const prompt = `You are a Senior Financial Analyst. 
+    Analyze the following array of transactions containing 'date', 'description', and 'amount'.
+    Note: All 'amount' values are in US Dollars ($).
 
-    Transações:
+    Transactions:
     ${JSON.stringify(transactions)}
 
-    Gere um relatório formatado em Markdown com:
-    1. Resumo de entradas e saídas.
-    2. Análise por categoria (use a descrição para categorizar).
-    3. 3 dicas específicas baseadas no comportamento de gastos.`;
+    Generate a detailed report in English using Markdown formatting:
+    1. A brief executive summary of total income vs. expenses.
+    2. Categorized analysis (automatically categorize based on descriptions). Use Markdown tables for clarity.
+    3. Provide 3 specific, actionable financial tips based on the user's spending behavior.
+    
+    Maintain a professional and helpful tone. Ensure the output is concise and easy to read.`;
 
     const result = await streamText({
       model: financeModel, 
       prompt: prompt
     });
 
-
     return result.toTextStreamResponse();
   } catch (error) {
-    return new Response('Erro no servidor', { status: 500 });
+    console.error('API Error:', error);
+    return new Response('Internal Server Error', { status: 500 });
   }
 }
