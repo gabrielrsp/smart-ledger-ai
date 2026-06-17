@@ -59,27 +59,27 @@ export default function Dashboard () {
           </p>
         </div>
 
-        {/* 2. Área de Upload */}
+        {/* 2. Upload area */}
         <FileUpload onDataExtracted={handleDataExtracted} />
 
-        {/* 3. Cards de Resumo */}
+        {/* 3. Summary cards */}
         {transactions.length > 0 && (
           <div className="mt-8 w-full flex justify-center px-4">
             <SummaryCards data={transactions} />
           </div>
         )}
 
-        {/* 4. Feedback de Carregamento da IA (Skeleton + Texto) */}
+        {/* 4. AI loading feedback (Skeleton + Text) */}
         {isLoading && !analysis && (
           <div className="w-full max-w-4xl mt-10 flex flex-col items-center gap-6">
 
-            {/* O aviso por escrito que você gosta */}
+            {/* The written notice */}
             <div className="flex items-center gap-2 text-zinc-500 animate-pulse">
               <span className="h-2 w-2 bg-zinc-500 rounded-full animate-bounce" />
               <p className="font-medium">Processing your financial data...</p>
             </div>
 
-            {/* O Skeleton logo abaixo */}
+            {/* The Skeleton right below */}
             <div className="w-full p-8 border rounded-3xl bg-white shadow-sm space-y-6 text-left">
               <div className="flex items-center gap-3 mb-4">
                 <Skeleton className="h-10 w-2 rounded-full bg-zinc-200" />
@@ -102,7 +102,7 @@ export default function Dashboard () {
           </div>
         )}
 
-        {/* 5. Relatório Detalhado (Markdown) */}
+        {/* 5. Detailed report (Markdown) */}
         {analysis && (
           <div className="w-full max-w-4xl mt-10 p-8 border rounded-3xl bg-white shadow-2xl text-left border-zinc-100 transition-all animate-in fade-in duration-700">
             <div className="flex items-center gap-3 mb-8 border-b pb-6">
